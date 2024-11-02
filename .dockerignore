@@ -1,0 +1,17 @@
+# Excluir directorios de dependencias
+node_modules
+dist
+build
+
+# Excluir archivos de configuración de Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Excluir archivos del sistema
+.DS_Store
+.git
+.gitignore
+
+# Excluir otros archivos innecesarios
+README.md
