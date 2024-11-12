@@ -1,50 +1,65 @@
-# React + TypeScript + Vite
+# SSL y NGINX: El Dúo Dinámico que Tu App Necesita para No Desmoronarse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenido al repositorio del proyecto presentado en la charla "SSL y NGINX: El Dúo Dinámico que Tu App Necesita para No Desmoronarse". Este proyecto es un entorno práctico que utiliza React para la interfaz y Docker para manejar el despliegue de NGINX como servidor proxy inverso con SSL, simplificando la gestión y la seguridad en aplicaciones web.
 
-Currently, two official plugins are available:
+## :bulb: Descripción del Proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este proyecto contiene:
+- Una aplicación básica de React.
+- Dockerfile para construir la aplicación de React.
+- Docker Compose para levantar el entorno completo, incluyendo un contenedor para la aplicación y otro para NGINX configurado como proxy inverso con SSL.
 
-## Expanding the ESLint configuration
+Este entorno permite ver de manera práctica cómo configurar un proxy inverso y habilitar HTTPS usando NGINX y Docker, creando un flujo de trabajo que puedes replicar en proyectos reales.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## :rocket: Tecnologias Utilizadas
 
-- Configure the top-level `parserOptions` property like this:
+- **React**: Framework de frontend para la interfaz de usuario.
+- **NGINX**: Servidor web y proxy inverso para gestionar peticiones y configurar SSL.
+- **Docker & Docker Compose**: Para contenerizar la aplicación y orquestar los contenedores.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## :gear: Uso del Docker compose 
+
+ Uso del Docker Compose
+
+El archivo `docker-compose.yml` configura y orquesta los contenedores de la aplicación y NGINX.
+
+### Construcción y Despliegue
+Para construir y levantar el entorno completo, ejecuta:
+```bash
+docker-compose up --build
+```
+Este comando:
+
+- Construye la imagen de Docker para la aplicación de React.
+- Levanta los contenedores de la aplicación y configura con NGINX.
+
+### Acceso a la Aplicación
+Una vez desplegado, podrás acceder a la aplicación en tu navegador en la siguiente URL:
+```
+https://localhost o <tu nombre de dominio>
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### :hammer_and_wrench: Comandos Útiles
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+🔧 Comandos Útiles
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+Parar el entorno:
+```bash
+docker-compose down
 ```
+
+Ver logs en tiempo real:
+```bash
+docker-compose logs -f
+```
+
+
+Reconstruir contenedores:
+```bash
+docker-compose up --build
+```
+
+¡Gracias por revisar este proyecto! Espero que te sea útil para entender cómo implementar un entorno de desarrollo seguro con React, NGINX y Docker.
+
+
+###### made with :sparkling_heart: by JosafatJimenezB :mexico:
