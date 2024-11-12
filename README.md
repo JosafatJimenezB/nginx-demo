@@ -41,7 +41,6 @@ https://localhost o <tu nombre de dominio>
 
 ### :hammer_and_wrench: Comandos Útiles
 
-🔧 Comandos Útiles
 
 Parar el entorno:
 ```bash
